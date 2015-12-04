@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link herf="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link herf="bower_components/jquery-ui/themes/base/jquery-ui.min.css" rel="stylesheet"></link>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/buttonDropdown.js"></script>
+    <script src="js/navs.js"></script>
+
+	<style type="text/css">
+	.show-grid [class^="col-"] {
+		background-color: rgba(86, 61, 124, 0.15);
+		border: 1px solid rgba(86, 61, 124, 0.2);
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	</style>
+</head>
+
+  <body>
+
+  	<h1>Bootstrap components Showcase</h1>
+
+	<div class="container-fluid">
+		<hr/>
+		<h2>Unidades Grid</h1>
+		<div class="row show-grid">
+		  <div class="col-md-1">1</div>		
+		  <div class="col-md-1">2</div>
+		  <div class="col-md-1">3</div>
+		  <div class="col-md-1">4</div>
+		  <div class="col-md-1">5</div>		
+		  <div class="col-md-1">6</div>
+		  <div class="col-md-1">7</div>
+		  <div class="col-md-1">8</div>
+		  <div class="col-md-1">9</div>		
+		  <div class="col-md-1">10</div>
+		  <div class="col-md-1">11</div>
+		  <div class="col-md-1">12</div>
+		</div>	
+	
+	    <hr/>
+	    <h2>Botões</h1>
+		<div class="row">
+		  <div class="col-md-2">
+			<button id="btn0"/>
+		  </div>		
+		  <div class="col-md-2">
+			<button id="btn1"/>
+		  </div>
+		  <div class="col-md-2">
+			<a id="btn2"></a>
+		  </div>
+		  <div class="col-md-2">
+			<button id="btn3"/>
+		  </div>
+		</div>
+		
+		<hr/>
+		<h2>Botões Dropdown</h2>
+		<div class="row">
+		  <div class="col-md-2">
+		    <div id="btndrop0"></div>
+		  </div>
+		  <div class="col-md-1">
+		    <div id="btndrop1"></div>
+		  </div>		
+		</div>
+
+		<hr/>
+		<h2>Navs</h2>
+		<h3>Tabs</h3>		
+		<div class="row">
+		  <div class="col-md-6">
+			<ul id="navs1"></ul>
+		  </div>
+		</div>
+		
+		<h3>Pills</h3>
+		<div class="row">
+		  <div class="col-md-6">
+		    <ul id="navs2"></ul>
+		  </div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+	$('#btn0').button({text: 'Default button'});
+    $('#btn1').button({type: 'primary', size: 'lg', text: 'Click here!'});
+    $('#btn2').button({type: 'success', size: 'sm', text: 'Small, but success!'});
+    $('#btn3').button({type: 'info', disabled: true, text: 'Disabled button!'});
+
+    $('#btndrop0').buttondropdown({type: 'info', text: 'Dropdown button', itens: [{text: 'Ação 01', href: 'http://www.google.com'}, {text: 'Ação 02', href: 'http://www.uol.com'}, {separator: true}, {text: 'Ação 04', href: 'http://www.tatame.com.br'}]});
+    $('#btndrop1').buttondropdown({type: 'danger', text: 'Dropdown button', itens: [{text: 'Ação 01', href: 'http://www.google.com'}, {separator: true}, {text: 'Ação 02', href: 'http://www.uol.com'}, {separator: true}, {text: 'Ação 04', href: 'http://www.tatame.com.br'}]});    
+
+    $('#navs1').navs({type: 'tabs', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
+    $('#navs2').navs({type: 'pills', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
+    
+    </script>
+</body>
+</html>

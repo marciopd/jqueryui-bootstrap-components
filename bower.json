@@ -1,0 +1,19 @@
+{
+  "name": "test-app",
+  "description": "",
+  "main": "",
+  "authors": [
+    "marciopd <marciopd@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery-ui": "~1.11.4",
+    "bootstrap": "~3.3.5",
+    "components-font-awesome": "~4.5.0"
+  }
+}
