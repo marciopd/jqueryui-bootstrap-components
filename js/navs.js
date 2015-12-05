@@ -79,6 +79,22 @@ $.cv.navs.prototype._addChildren = function(element, itens) {
 			var link = $('<a>', {href: (item.href ? item.href : '#')});
 			link.text(item.text);
 			link.appendTo(li);
+
+			if (item.dropdown == true) {
+                            li.addClass('dropdown');
+                            link.addClass('dropdown-toggle');
+                            link.attr('data-toggle', 'dropdown'); 
+                            link.attr('href', '#');
+                            link.attr('role', 'button');
+                            link.attr('aria-haspopup', 'true');
+                            link.attr('aria-expanded', 'false');
+                            $('<span class="caret">').appendTo(link);
+
+                            if ($.isArray(item.dropdownList)) {
+                                $('<ul>').dropdownMenuList({itens: item.dropdownList}).appendTo(li);
+                            }
+			}
+
 			li.appendTo(element);
 
 			li.click(function(event) {
@@ -90,6 +106,7 @@ $.cv.navs.prototype._addChildren = function(element, itens) {
 
 	}
 };
+
 
 $.cv.navs.prototype._removeChildren = function(element) {
 	element.children().remove();

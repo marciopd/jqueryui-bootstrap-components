@@ -16,6 +16,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/dropdownMenuList.js"></script>
     <script src="js/button.js"></script>
     <script src="js/buttonDropdown.js"></script>
     <script src="js/navs.js"></script>
@@ -95,6 +96,13 @@
 		    <ul id="navs2"></ul>
 		  </div>
 		</div>
+
+		<h3>Tabs with dropdowns</h3>
+		<div class="row">
+		  <div class="col-md-6">
+		    <ul id="navs3"></ul>
+		  </div>
+		</div>
 	</div>
 
 	<script type="text/javascript">
@@ -108,6 +116,7 @@
 
     $('#navs1').navs({type: 'tabs', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
     $('#navs2').navs({type: 'pills', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
+    $('#navs3').navs({type: 'tabs', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Dropdown', dropdown: true, dropdownList: [{text: 'Ação 01', href: 'http://www.google.com'}, {text: 'Ação 02', href: 'http://www.uol.com'}, {separator: true}, {text: 'Ação 04', href: 'http://www.tatame.com.br'}]}]});
     
     </script>
 </body>

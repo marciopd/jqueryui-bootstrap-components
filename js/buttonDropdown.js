@@ -6,17 +6,21 @@ $.widget("cv.buttondropdown", {
 		disabled: undefined,
 		itens: []
 	},
-	_button: undefined
+	_button: undefined,
+        _menuList: undefined
 });
 
 $.cv.buttondropdown.prototype._create = function() {
 	this.element._button = $("<button></button>").button();
 	this.element._button.appendTo(this.element);
+        this.element._menuList = $("<ul></ul>").dropdownMenuList();
+        this.element._menuList.appendTo(this.element);
 	this.refresh();
 };
 
 $.cv.buttondropdown.prototype._destroy = function() {
 	this.element._button.button('destroy');
+	this.element._menuList.dropdownMenuList('destroy');
 	this.options = undefined;
 };
 
@@ -62,20 +66,6 @@ $.cv.buttondropdown.prototype._refreshButton = function() {
 };
 
 $.cv.buttondropdown.prototype._refreshDropdownList = function() {
-	if ($.isArray(this.options.itens)) {
-		this.element.children("ul[class='dropdown-menu']").remove();
-	}
-	
-	if ($.isArray(this.options.itens)) {
-		var dropdownList = $('<ul class="dropdown-menu"></ul>');
-		dropdownList.appendTo(this.element);
-
-		this.options.itens.forEach(function(item) {
-			if (item.separator) {
-				$("<li role='separator' class='divider'></li>").appendTo(dropdownList);
-			} else {
-				$("<li class='" + (!item.class ? '' : item.class) + "'><a href='" + (!item.href ? '#' : item.href) + "'>" + item.text + "</a></li>").appendTo(dropdownList);
-			}
-		});
-	}	
+	this.element._menuList.dropdownMenuList('refresh', this.options);	
 };
+
