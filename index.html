@@ -8,18 +8,19 @@
     <title>Bootstrap 101 Template</title>
 
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
-    <link herf="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet"></link>
-    <link herf="bower_components/jquery-ui/themes/base/jquery-ui.min.css" rel="stylesheet"></link>
+    <link href="bower_components/components-font-awesome/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link href="bower_components/jquery-ui/themes/base/jquery-ui.min.css" rel="stylesheet"></link>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-    <script src="js/dropdownMenuList.js"></script>
-    <script src="js/button.js"></script>
-    <script src="js/buttonDropdown.js"></script>
-    <script src="js/navs.js"></script>
+    <script src="src/js/dropdownMenuList.js"></script>
+    <script src="src/js/button.js"></script>
+    <script src="src/js/buttonDropdown.js"></script>
+    <script src="src/js/navs.js"></script>
+    <script src="src/js/breadcrumb.js"></script>
 
 	<style type="text/css">
 	.show-grid [class^="col-"] {
@@ -37,7 +38,7 @@
 
 	<div class="container-fluid">
 		<hr/>
-		<h2>Unidades Grid</h1>
+		<h2>Unidades Grid</h2>
 		<div class="row show-grid">
 		  <div class="col-md-1">1</div>		
 		  <div class="col-md-1">2</div>
@@ -54,19 +55,19 @@
 		</div>	
 	
 	    <hr/>
-	    <h2>Botões</h1>
+	    <h2>Botões</h2>
 		<div class="row">
 		  <div class="col-md-2">
-			<button id="btn0"/>
+			<button id="btn0"></button>
 		  </div>		
 		  <div class="col-md-2">
-			<button id="btn1"/>
+			<button id="btn1"></button>
 		  </div>
 		  <div class="col-md-2">
 			<a id="btn2"></a>
 		  </div>
 		  <div class="col-md-2">
-			<button id="btn3"/>
+			<button id="btn3"></button>
 		  </div>
 		</div>
 		
@@ -103,6 +104,14 @@
 		    <ul id="navs3"></ul>
 		  </div>
 		</div>
+
+        <hr/>
+        <h2>Breadcrumb</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <ol id="bcrumb1"></ol>
+          </div>
+        </div>
 	</div>
 
 	<script type="text/javascript">
@@ -117,6 +126,9 @@
     $('#navs1').navs({type: 'tabs', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
     $('#navs2').navs({type: 'pills', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
     $('#navs3').navs({type: 'tabs', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Dropdown', dropdown: true, dropdownList: [{text: 'Ação 01', href: 'http://www.google.com'}, {text: 'Ação 02', href: 'http://www.uol.com'}, {separator: true}, {text: 'Ação 04', href: 'http://www.tatame.com.br'}]}]});
+    
+    
+    $('#bcrumb1').breadcrumb({itens: [{text: 'Home', href: 'http://www.google.com'}, {text: 'Library', href: 'http://www.amazon.com'}, {text: 'Data'}]});
     
     </script>
 </body>
