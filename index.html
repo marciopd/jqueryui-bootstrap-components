@@ -21,7 +21,9 @@
     <script src="src/js/buttonDropdown.js"></script>
     <script src="src/js/navs.js"></script>
     <script src="src/js/breadcrumb.js"></script>
-    <script src="src/js/badge.js"></script>    
+    <script src="src/js/badge.js"></script>
+    <script src="src/js/pageHeader.js"></script>
+    <!-- script src="dist/jqbscomp.min.js"></script --><!-- minified script with all components -->    
 
 	<style type="text/css">
 	.show-grid [class^="col-"] {
@@ -140,6 +142,14 @@
             <ul id="navsWithBadge"></ul>
           </div>
         </div>
+
+        <hr/>
+        <h2>Page Header</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="pheader1" href="#"></div>
+          </div>
+        </div>        
 	</div>
 
 	<script type="text/javascript">
@@ -170,7 +180,10 @@
     $('#liHomeId a').badge({total: 42});
     $('#liMessagesId a').badge({total: 3});
     
+    //pageheader
+    $('#pheader1').pageheader({text: 'Example page header <small>Subtext for header</small>'});
     
+    // aplica javascript void em links para a propria pagina
     $('[href="#"]').attr('href', 'javascript:void()');
     </script>
 </body>
