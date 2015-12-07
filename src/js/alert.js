@@ -26,12 +26,13 @@ $.cv.alert.prototype.refresh = function(newOptions) {
 		}
 	}
 
+	this.element.removeClass('alert-info alert-success alert-warning alert-danger');
+	
 	this.element.addClass('alert');
 	var type = this._getType(this.options.type);
 	if (type) {
 	   this.element.addClass('alert-' + type);    
 	}
-	
 	this.element.html(this.options.text);
 };
 
