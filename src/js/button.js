@@ -17,7 +17,7 @@ $.cv.button.prototype._destroy = function() {
 
 $.cv.button.prototype.refresh = function(newOptions) {
 		
-	if (this._isValidElementType(this.element)) {
+	if (this._isInvalidElementType(this.element)) {
 		this.element.text("cv.button: Use A or BUTTON for this component.");
 		return;
 	}
@@ -39,7 +39,7 @@ $.cv.button.prototype.refresh = function(newOptions) {
 	this.element.text(this.options.text);
 };
 
-$.cv.button.prototype._isValidElementType = function(element) {
+$.cv.button.prototype._isInvalidElementType = function(element) {
 	var elemType = element.prop('nodeName').toUpperCase();
 	return elemType != 'A' && elemType != 'BUTTON';
 };

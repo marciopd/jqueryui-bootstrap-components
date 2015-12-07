@@ -23,6 +23,7 @@
     <script src="src/js/breadcrumb.js"></script>
     <script src="src/js/badge.js"></script>
     <script src="src/js/pageHeader.js"></script>
+    <script src="src/js/alert.js"></script>
     <!-- script src="dist/jqbscomp.min.js"></script --><!-- minified script with all components -->    
 
 	<style type="text/css">
@@ -149,7 +150,33 @@
           <div class="col-md-12">
             <div id="pheader1" href="#"></div>
           </div>
-        </div>        
+        </div>
+        
+        <hr/>
+        <h2>Alert</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div id="alert1"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div id="alert2"></div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div id="alert3"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div id="alert4"></div>
+          </div>
+        </div>
 	</div>
 
 	<script type="text/javascript">
@@ -182,7 +209,13 @@
     
     //pageheader
     $('#pheader1').pageheader({text: 'Example page header <small>Subtext for header</small>'});
-    
+
+    //alert
+    $('#alert1').alert({type: 'success', text: '<strong>Well done!</strong> You successfully read this important alert message.'});
+    $('#alert2').alert({type: 'info', text: "<strong>Heads up!</strong> This alert needs your attention, but it's not super important. "});
+    $('#alert3').alert({type: 'warning', text: '<strong>Warning!</strong> Better check yourself, you\'re not looking too good.'});
+    $('#alert4').alert({type: 'danger', text: '<strong>Oh snap!</strong> Change a few things up and try submitting again.'});
+
     // aplica javascript void em links para a propria pagina
     $('[href="#"]').attr('href', 'javascript:void()');
     </script>
