@@ -80,6 +80,10 @@ $.cv.navs.prototype._addChildren = function(element, itens) {
 			link.text(item.text);
 			link.appendTo(li);
 
+            if (item.id) {
+                li.attr('id', item.id);
+            }
+
 			if (item.dropdown == true) {
                             li.addClass('dropdown');
                             link.addClass('dropdown-toggle');

@@ -21,6 +21,7 @@
     <script src="src/js/buttonDropdown.js"></script>
     <script src="src/js/navs.js"></script>
     <script src="src/js/breadcrumb.js"></script>
+    <script src="src/js/badge.js"></script>    
 
 	<style type="text/css">
 	.show-grid [class^="col-"] {
@@ -29,6 +30,11 @@
 		padding-bottom: 10px;
 		padding-top: 10px;
 	}
+	
+	span.badge {
+        margin-left: 3px;
+    }
+
 	</style>
 </head>
 
@@ -112,24 +118,60 @@
             <ol id="bcrumb1"></ol>
           </div>
         </div>
+
+        <hr/>
+        <h2>Badge</h2>
+        <div class="row">
+          <div class="col-md-3">
+            <a id="badge1" href="#">Inbox</a>
+          </div>
+        </div>
+        
+        <br/>
+        <div class="row">
+          <div class="col-md-3">
+            <button id="badge2"></button>
+          </div>
+        </div>
+
+        <br/>
+        <div class="row">
+          <div class="col-md-6">
+            <ul id="navsWithBadge"></ul>
+          </div>
+        </div>
 	</div>
 
 	<script type="text/javascript">
+    //button
 	$('#btn0').button({text: 'Default button'});
     $('#btn1').button({type: 'primary', size: 'lg', text: 'Click here!'});
     $('#btn2').button({type: 'success', size: 'sm', text: 'Small, but success!'});
     $('#btn3').button({type: 'info', disabled: true, text: 'Disabled button!'});
 
+    //buttondrop
     $('#btndrop0').buttondropdown({type: 'info', text: 'Dropdown button', itens: [{text: 'Ação 01', href: 'http://www.google.com'}, {text: 'Ação 02', href: 'http://www.uol.com'}, {separator: true}, {text: 'Ação 04', href: 'http://www.tatame.com.br'}]});
     $('#btndrop1').buttondropdown({type: 'danger', text: 'Dropdown button', itens: [{text: 'Ação 01', href: 'http://www.google.com'}, {separator: true}, {text: 'Ação 02', href: 'http://www.uol.com'}, {separator: true}, {text: 'Ação 04', href: 'http://www.tatame.com.br'}]});    
 
+    //navs
     $('#navs1').navs({type: 'tabs', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
     $('#navs2').navs({type: 'pills', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Messages', href: 'http://www.tatame.com.br'}]});
     $('#navs3').navs({type: 'tabs', itens: [{text: 'Home', active: true}, {text: 'Profile'}, {text: 'Dropdown', dropdown: true, dropdownList: [{text: 'Ação 01', href: 'http://www.google.com'}, {text: 'Ação 02', href: 'http://www.uol.com'}, {separator: true}, {text: 'Ação 04', href: 'http://www.tatame.com.br'}]}]});
     
-    
+    //breadcrumb
     $('#bcrumb1').breadcrumb({itens: [{text: 'Home', href: 'http://www.google.com'}, {text: 'Library', href: 'http://www.amazon.com'}, {text: 'Data'}]});
     
+    //badges
+    $('#badge1').badge({total: 3});
+    $('#badge2').button({type: 'primary', text: 'Messages'});
+    $('#badge2').badge({total: 42});
+    
+    $('#navsWithBadge').navs({type: 'pills', itens: [{id: 'liHomeId', text: 'Home', active: true}, {text: 'Profile'}, {id: 'liMessagesId', text: 'Messages', href: 'http://www.tatame.com.br'}]});
+    $('#liHomeId a').badge({total: 42});
+    $('#liMessagesId a').badge({total: 3});
+    
+    
+    $('[href="#"]').attr('href', 'javascript:void()');
     </script>
 </body>
 </html>
