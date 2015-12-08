@@ -33,7 +33,12 @@ $.cv.alert.prototype.refresh = function(newOptions) {
 	if (type) {
 	   this.element.addClass('alert-' + type);    
 	}
-	this.element.html(this.options.text);
+	
+	if (this.options.text && this.options.text['summary']) {
+		this.element.html('<strong>' + this.options.text['summary'] + '</strong> ' + this.options.text['detail']);
+	} else {
+		this.element.html(this.options.text);
+	}
 };
 
 $.cv.alert.prototype._isInvalidElementType = function(element) {

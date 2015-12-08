@@ -230,7 +230,7 @@
     $('#alert1').alert({type: 'success', text: '<strong>Well done!</strong> You successfully read this important alert message.'});
     $('#alert2').alert({type: 'info', text: "<strong>Heads up!</strong> This alert needs your attention, but it's not super important. "});
     $('#alert3').alert({type: 'warning', text: '<strong>Warning!</strong> Better check yourself, you\'re not looking too good.'});
-    $('#alert4').alert({type: 'danger', text: '<strong>Oh snap!</strong> Change a few things up and try submitting again.'});
+    $('#alert4').alert({type: 'danger', text: { summary: 'Oh snap!', detail: 'Change a few things up and try submitting again.'}});
 
 	//list group
 	$('#listgroup1').listgroup({itens: [{text: 'Cras justo odio'}, {text: 'Dapibus ac facilisis in'}, {text: 'Morbi leo risus'}, {text: 'Porta ac consectetur ac'}, {text: 'Vestibulum at eros'}]});
