@@ -25,6 +25,7 @@
     <script src="src/js/pageHeader.js"></script>
     <script src="src/js/alert.js"></script>
     <script src="src/js/listGroup.js"></script>
+    <script src="src/js/listGroupLinkedItens.js"></script>    
     <!-- script src="dist/jqbscomp.min.js"></script --><!-- minified script with all components -->    
 
 	<style type="text/css">
@@ -192,7 +193,13 @@
           <div class="col-md-3">
             <ul id="listgroup2"></ul>
           </div>
-        </div>             
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div id="listgroup3"></div>
+          </div>
+        </div>           
 	</div>
 
 	<script type="text/javascript">
@@ -240,8 +247,11 @@
 	$('#lg2-it02').badge({total: 2});
 	$('#lg2-it03').badge({total: 1});
 
+	//list group with linked itens
+	$('#listgroup3').listgrouplinkeditens({itens: [{text: 'Cras justo odio'}, {text: 'Dapibus ac facilisis in'}, {text: 'Morbi leo risus'}, {text: 'Porta ac consectetur ac'}, {text: 'Vestibulum at eros'}]});
+
     // aplica javascript void em links para a propria pagina
-    $('[href="#"]').attr('href', 'javascript:void()');
+    $('[href="#"]').attr('href', 'javascript:void(0);');
     </script>
 </body>
 </html>
