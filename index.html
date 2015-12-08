@@ -24,6 +24,7 @@
     <script src="src/js/badge.js"></script>
     <script src="src/js/pageHeader.js"></script>
     <script src="src/js/alert.js"></script>
+    <script src="src/js/listGroup.js"></script>
     <!-- script src="dist/jqbscomp.min.js"></script --><!-- minified script with all components -->    
 
 	<style type="text/css">
@@ -177,6 +178,21 @@
             <div id="alert4"></div>
           </div>
         </div>
+
+
+        <hr/>
+        <h2>List group</h2>
+        <div class="row">
+          <div class="col-md-3">
+            <ul id="listgroup1"></ul>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-3">
+            <ul id="listgroup2"></ul>
+          </div>
+        </div>             
 	</div>
 
 	<script type="text/javascript">
@@ -215,6 +231,14 @@
     $('#alert2').alert({type: 'info', text: "<strong>Heads up!</strong> This alert needs your attention, but it's not super important. "});
     $('#alert3').alert({type: 'warning', text: '<strong>Warning!</strong> Better check yourself, you\'re not looking too good.'});
     $('#alert4').alert({type: 'danger', text: '<strong>Oh snap!</strong> Change a few things up and try submitting again.'});
+
+	//list group
+	$('#listgroup1').listgroup({itens: [{text: 'Cras justo odio'}, {text: 'Dapibus ac facilisis in'}, {text: 'Morbi leo risus'}, {text: 'Porta ac consectetur ac'}, {text: 'Vestibulum at eros'}]});
+
+	$('#listgroup2').listgroup({itens: [{id: 'lg2-it01', text: 'Cras justo odio'}, {id: 'lg2-it02', text: 'Dapibus ac facilisis in'}, {id: 'lg2-it03', text: 'Morbi leo risus'}]});
+	$('#lg2-it01').badge({total: 14});
+	$('#lg2-it02').badge({total: 2});
+	$('#lg2-it03').badge({total: 1});
 
     // aplica javascript void em links para a propria pagina
     $('[href="#"]').attr('href', 'javascript:void()');

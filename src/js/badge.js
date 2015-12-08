@@ -29,6 +29,7 @@ $.cv.badge.prototype._getTotal = function() {
     if ($.isNumeric(this.options.total)) {
         return this.options.total;
     } else {
+    	console.warn("Ignoring invalid value for 'total': " + this.options.total);
         return 0;
     }
 }; 
