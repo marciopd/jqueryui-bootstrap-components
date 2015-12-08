@@ -14,7 +14,7 @@ $.cv.breadcrumb.prototype._destroy = function() {
 
 $.cv.breadcrumb.prototype.refresh = function(newOptions) {
 		
-	if (this._isValidElementType(this.element)) {
+	if (this._isInvalidElementType(this.element)) {
 		this.element.text("cv.breadcrumb: Use 'OL' for this component.");
 		return;
 	}
@@ -45,7 +45,7 @@ $.cv.breadcrumb.prototype.refresh = function(newOptions) {
 	}
 };
 
-$.cv.breadcrumb.prototype._isValidElementType = function(element) {
+$.cv.breadcrumb.prototype._isInvalidElementType = function(element) {
 	var elemType = element.prop('nodeName').toUpperCase();
 	return elemType != 'OL';
 };

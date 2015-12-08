@@ -7,7 +7,7 @@ $.widget("cv.buttondropdown", {
 		itens: []
 	},
 	_button: undefined,
-        _menuList: undefined
+    _menuList: undefined
 });
 
 $.cv.buttondropdown.prototype._create = function() {

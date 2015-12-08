@@ -15,7 +15,7 @@ $.cv.alert.prototype._destroy = function() {
 
 $.cv.alert.prototype.refresh = function(newOptions) {
 
-    if (!this._isValidElementType(this.element)) {
+    if (this._isInvalidElementType(this.element)) {
         this.element.text("cv.alert: Use 'DIV' for this component.");
         return;
     }
@@ -36,9 +36,9 @@ $.cv.alert.prototype.refresh = function(newOptions) {
 	this.element.html(this.options.text);
 };
 
-$.cv.alert.prototype._isValidElementType = function(element) {
+$.cv.alert.prototype._isInvalidElementType = function(element) {
     var elemType = element.prop('nodeName').toUpperCase();
-    return elemType == 'DIV';
+    return elemType != 'DIV';
 };
 
 $.cv.alert.prototype._VALID_TYPES = ['success', 'info', 'warning', 'danger'];
