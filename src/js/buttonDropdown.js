@@ -26,7 +26,7 @@ $.cv.buttondropdown.prototype._destroy = function() {
 
 $.cv.buttondropdown.prototype.refresh = function(newOptions) {
 
-	if (this._isValidElementType(this.element)) {
+	if (this._isInvalidElementType(this.element)) {
 		this.element.text(".cv.buttondropdown: Use DIV for this component.");
 		return;
 	}
@@ -42,7 +42,7 @@ $.cv.buttondropdown.prototype.refresh = function(newOptions) {
 	this._refreshDropdownList();
 };
 
-$.cv.buttondropdown.prototype._isValidElementType = function(element) {
+$.cv.buttondropdown.prototype._isInvalidElementType = function(element) {
 	var elemType = element.prop('nodeName').toUpperCase();
 	return elemType != 'DIV' && elemType != 'BUTTON';
 };

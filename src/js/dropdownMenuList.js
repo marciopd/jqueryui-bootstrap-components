@@ -16,7 +16,7 @@ $.cv.dropdownMenuList.prototype._destroy = function() {
 };
 
 $.cv.dropdownMenuList.prototype.refresh = function(newOptions) {
-	if (this._isValidElementType(this.element)) {
+	if (this._isInvalidElementType(this.element)) {
 		this.element.text(".cv.dropdownMenuList: Use UL for this component.");
 		return;
 	}
@@ -30,7 +30,7 @@ $.cv.dropdownMenuList.prototype.refresh = function(newOptions) {
 	this._refresh();
 };
 
-$.cv.dropdownMenuList.prototype._isValidElementType = function(element) {
+$.cv.dropdownMenuList.prototype._isInvalidElementType = function(element) {
 	var elemType = element.prop('nodeName').toUpperCase();
 	return elemType != 'UL';
 };

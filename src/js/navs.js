@@ -17,7 +17,7 @@ $.cv.navs.prototype._destroy = function() {
 
 $.cv.navs.prototype.refresh = function(newOptions) {
 		
-	if (this._isValidElementType(this.element)) {
+	if (this._isInvalidElementType(this.element)) {
 		this.element.text("cv.navs: Use UL element for this component.");
 		return;
 	}
@@ -34,7 +34,7 @@ $.cv.navs.prototype.refresh = function(newOptions) {
 	this._addChildren(this.element, this.options.itens);
 };
 
-$.cv.navs.prototype._isValidElementType = function(element) {
+$.cv.navs.prototype._isInvalidElementType = function(element) {
 	var elemType = element.prop('nodeName').toUpperCase();
 	return elemType != 'UL';
 };
