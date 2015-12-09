@@ -4,9 +4,7 @@ node_js:
 before_script:
   - npm install bower
   - bower install
-  - npm install grunt
   - npm install grunt-cli
-  - grunt
 
 
 
