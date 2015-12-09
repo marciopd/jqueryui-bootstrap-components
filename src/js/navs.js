@@ -32,6 +32,12 @@ $.cv.navs.prototype.refresh = function(newOptions) {
 	this._removeChildren(this.element);
 	this._addComponentCss(this.element);
 	this._addChildren(this.element, this.options.itens);
+	this.showSelectedItemTarget();
+};
+
+$.cv.navs.prototype.showSelectedItemTarget = function() {
+    this._hideItensContent(this.options.itens);
+    this._showActiveItemContent(this.options.itens);
 };
 
 $.cv.navs.prototype._isInvalidElementType = function(element) {
@@ -105,6 +111,9 @@ $.cv.navs.prototype._addChildren = function(element, itens) {
 				var liSelected = $(this);
 				liSelected.parent().children().removeClass('active');
 				liSelected.addClass('active');
+
+				element.navs('showSelectedItemTarget');
+				event.preventDefault();
 			});
 		});
 
@@ -114,4 +123,36 @@ $.cv.navs.prototype._addChildren = function(element, itens) {
 
 $.cv.navs.prototype._removeChildren = function(element) {
 	element.children().remove();
+};
+
+$.cv.navs.prototype._showActiveItemContent = function() {
+    var activeItem = this.element.children('li.active:first');
+    
+    if (activeItem) {
+        var hrefElement = this._getTargetElement(activeItem);
+        if (hrefElement) {
+            hrefElement.addClass('active in');
+        }
+    }
+};
+
+$.cv.navs.prototype._hideItensContent = function() {
+    var itens = this.element.children('li');
+
+    var component = this;
+    $.each(itens, function(index, item) {
+        var hrefElement = component._getTargetElement(item);
+        if (hrefElement) {
+            hrefElement.removeClass('active in');    
+        }
+    });
+
+};
+
+$.cv.navs.prototype._getTargetElement = function(element) {
+    var href = $(element).children('a').first().attr('href');
+    if (href && href[0] == "#" && href.length > 1) {
+        return $(href);
+    }
+    return undefined;    
 };
