@@ -18,6 +18,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    cssmin: {
+       dist: {
+         files: {
+           'dist/jqbscomp.min.css': ['src/css/*.css']
+         }
+       }
+    },
     karma: { 
         unit: { 
             configFile:'karma.conf.js'
@@ -28,9 +35,10 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'uglify', 'karma']);
+  grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'karma']);
 
 };
