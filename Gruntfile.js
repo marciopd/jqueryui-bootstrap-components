@@ -1,11 +1,34 @@
 module.exports = function(grunt) {
 
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
+
+  // Automatically load required grunt tasks
+  require('jit-grunt')(grunt, {
+    useminPrepare: 'grunt-usemin'
+  });
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     clean: {
       dist: 'dist',
       docs: 'docs/dist'
+    },
+    "bower-install-simple": {
+        options: {
+            color: true
+        },
+        "prod": {
+            options: {
+                production: true
+            }
+        },
+        "dev": {
+            options: {
+                production: false
+            }
+        }
     },
     uglify: {
       options: {
@@ -32,13 +55,7 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-karma');
-
   // Default task(s).
-  grunt.registerTask('default', ['clean', 'uglify', 'cssmin', 'karma']);
+  grunt.registerTask('default', ['clean', "bower-install-simple", 'uglify', 'cssmin', 'karma']);
 
 };
