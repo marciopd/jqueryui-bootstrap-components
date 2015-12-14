@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'dist/jqbscomp.min.js':['src/js/button.js', 'src/js/dropdownMenuList.js', 'src/js/buttonDropdown.js', 'src/js/navs.js', 'src/js/breadcrumb.js', 'src/js/badge.js', 'src/js/pageHeader.js', 'src/js/alert.js', 'src/js/listGroup.js', 'src/js/listGroupLinkedItens.js', 'src/js/listGroupButtonItens.js']
+          'dist/jqbscomp.min.js':['src/js/button.js', 'src/js/dropdownMenuList.js', 'src/js/buttonDropdown.js', 'src/js/tabpanel.js', 'src/js/navs.js', 'src/js/breadcrumb.js', 'src/js/badge.js', 'src/js/pageHeader.js', 'src/js/alert.js', 'src/js/listGroup.js', 'src/js/listGroupLinkedItens.js', 'src/js/listGroupButtonItens.js']
         }
       }
     },

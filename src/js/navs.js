@@ -80,6 +80,15 @@ $.cv.navs.prototype._removeComponentCss = function(element) {
 
 $.cv.navs.prototype._addChildren = function(element, itens) {
 	if ($.isArray(itens)) {
+
+		var onClickItemFunction = function(event) {
+		    var liSelected = $(this);
+		    liSelected.parent().children('li.active').removeClass('active');
+		    liSelected.addClass('active');
+		    element.navs('showSelectedItemTarget');
+		    event.preventDefault();
+		};
+
 		itens.forEach(function(item) {
 			var li = $('<li>', {role: 'presentation', class: (item.active == true ? 'active' : '')});
 			var link = $('<a>', {href: (item.href ? item.href : '#')});
@@ -90,31 +99,27 @@ $.cv.navs.prototype._addChildren = function(element, itens) {
                 li.attr('id', item.id);
             }
 
-			if (item.dropdown == true) {
-                            li.addClass('dropdown');
-                            link.addClass('dropdown-toggle');
-                            link.attr('data-toggle', 'dropdown'); 
-                            link.attr('href', '#');
-                            link.attr('role', 'button');
-                            link.attr('aria-haspopup', 'true');
-                            link.attr('aria-expanded', 'false');
-                            $('<span class="caret">').appendTo(link);
+			if (item.dropdownList) {
+	            li.addClass('dropdown');
+	            link.addClass('dropdown-toggle');
+	            link.attr('data-toggle', 'dropdown'); 
+	            link.attr('href', '#');
+	            link.attr('role', 'button');
+	            link.attr('aria-haspopup', 'true');
+	            link.attr('aria-expanded', 'false');
+	            $('<span class="caret">').appendTo(link);
 
-                            if ($.isArray(item.dropdownList)) {
-                                $('<ul>').dropdownMenuList({itens: item.dropdownList}).appendTo(li);
-                            }
+	            if ($.isArray(item.dropdownList)) {
+	                var dropdownMenuList = $('<ul>').dropdownMenuList({itens: item.dropdownList});
+	                dropdownMenuList.children('li').click(onClickItemFunction);
+	                dropdownMenuList.appendTo(li);
+	            }
 			}
+
 
 			li.appendTo(element);
 
-			li.click(function(event) {
-				var liSelected = $(this);
-				liSelected.parent().children().removeClass('active');
-				liSelected.addClass('active');
-
-				element.navs('showSelectedItemTarget');
-				event.preventDefault();
-			});
+			li.click(onClickItemFunction);
 		});
 
 	}
@@ -126,8 +131,17 @@ $.cv.navs.prototype._removeChildren = function(element) {
 };
 
 $.cv.navs.prototype._showActiveItemContent = function() {
+
     var activeItem = this.element.children('li.active:first');
-    
+    if (activeItem.length == 0) {
+    	activeItem = this.element.children('li:first');
+    }
+
+    var dropdownListSelectedItem = activeItem.find('li.active:first');
+    if (dropdownListSelectedItem.length > 0) {
+		activeItem = dropdownListSelectedItem;
+    }
+
     if (activeItem) {
         var hrefElement = this._getTargetElement(activeItem);
         if (hrefElement) {
@@ -137,7 +151,7 @@ $.cv.navs.prototype._showActiveItemContent = function() {
 };
 
 $.cv.navs.prototype._hideItensContent = function() {
-    var itens = this.element.children('li');
+    var itens = this.element.find('li');
 
     var component = this;
     $.each(itens, function(index, item) {
