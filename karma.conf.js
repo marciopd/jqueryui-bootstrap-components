@@ -17,7 +17,7 @@ module.exports = function(config) {
     files: [
       'bower_components/jquery/dist/jquery.min.js', 
       'bower_components/jquery-ui/jquery-ui.min.js',
-      'dist/jqbscomp.min.js',
+      'src/js/*.js',
       'test/*.test.js'
     ],
 
@@ -30,14 +30,23 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      // source files, that you wanna generate coverage for 
+      // do not include tests or libraries 
+      // (these files will be instrumented by Istanbul) 
+      'src/js/*.js': ['coverage']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
+    // optionally, configure the reporter 
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
 
     // web server port
     port: 9876,

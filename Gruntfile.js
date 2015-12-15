@@ -13,7 +13,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     clean: {
       dist: 'dist',
-      docs: 'docs/dist'
+      docs: 'docs/dist',
+      coverage: 'coverage'
     },
     "bower-install-simple": {
         options: {
